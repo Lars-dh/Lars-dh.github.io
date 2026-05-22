@@ -1,0 +1,196 @@
+const terms = [
+    ["Onverenigbaar beroep", "Een beroep dat niet gecombineerd kan worden met een andere baan als zelfstandige (bv.: advocaat, notaris, politie,..)."],
+    ["KBO, Kruispuntbank van Ondernemingen", "Register met een gegevensbestand over natuurlijke personen, rechtspersonen of verenigingen die onderneming voeren, personeel tewerkstellen of btw-plichtig zijn."],
+    ["Ondernemingsloket", "Prive-organisatie erkend door de overheid die bevoegd is voor administratieve formaliteiten en dienstverleningen voor ondernemers, Zorgt voor inschrijving in kbo, verleent advies, vergunningen in orde?"],
+    ["UBO-register", "Register waar uiteindelijke begunstigden (Ultimate Beneficial Owners) van een vennootschap of andere juridische entiteit in geregistreerd staan."],
+    ["Huwelijksstelsel", "Bepaald huwelijksgoederenstelsel op basis van het huwelijkscontract."],
+    ["Wettelijk stelsel", "Alle bezittingen voor het huwelijk blijven gescheiden, alles erna is gemeenschappelijk (behavle erfenissen en schenkingen)."],
+    ["Scheiding van goederen", "Alle bezittingen voor en tijdens het huwelijk blijven gescheiden."],
+    ["Algehele gemeenschap van goederen", "Alle bezittingen, inkomsten en schulden voor en tijdens het huwelijk worden gemeenschappelijk."],
+    ["Sociaal verzekeringsfonds", "(verplicht) Verzekeringsfonds waar je sociale bijdrage betaald wat je recht geeft op uitkeringen: pensioen, ziekte of invaliditeit, groeipakket, werkloosheid, overbruggingsrecht."],
+    ["Erkend ziekenfonds", "Verplichte aansluiting voor zelfstandigen en helper binnen de 6 maanden na aanvang, recht op terugbetaling gezondheidszorg, arbeidsongeschiktheidsuitkering na 1 maand, invaliditeit na 12 maand."],
+    ["WCO, Wet op continuiteit van onderneming", "Laatste kans voor onderneming in moeilijkheden om tot duuzaam herstel te komen."],
+    ["Ondernemingsbemiddelaar", "Tussenpersoon tussen schuldeisers en schuldenaar."],
+    ["Minnelijk akkoord", "Mogelijkheid voor onderneming om los van gerechtelijke procedure akkoorden af te sluiten met schuldeisers."],
+    ["Gerechtelijke reorganisatie", "Op vraag v/d ondernemer wanneer onderneming bedreigd is. Wordt toegestaan voor: een minnelijk akkoord voor schuldeisers, het opstellen van een reorganisatieplan en daarmee een akkoord met de schuldeisers te krijgen of een gerechtelijke overdracht van de onderneming en haar activiteiten door te voeren."],
+    ["Faillissement", "Gerechtelijke procedure voor een onderneming die niet in staat is aan zijn financiële verplichtingen te voldoen. De ondernemingsrechtbank spreekt dit uit."],
+    ["Faillissementsvoorwaarden", "Het gaat om een onderneming, betalingen zijn gestaakt en het krediet is geschokt (onderneming krijgt geen krediet meer van bank noch leverancier)."],
+    ["Verschoning na faillissement", "Regsol (centraal register solvabiliteit) oordeelt dat gefailleerde geen fouten heeft gemaakt en faillisement niet zelf veroorzaakte. Dit leidt tot verschoning: schuldeiser kunnen hem niet meer vervolgen voor de schulden. Dit is een eenmalig iets!"],
+    ["Overbruggingsrecht", "Verzekering bij gedwongen sluiting dat recht geeft op behoud van kinderbijslag en geneeskundige verzorging zonder sociale bijdragen te moeten betalen, een maandelijkse uitkering = minimumpensioen (max 12 maanden)."],
+    ["Eenmanszaak", "Onderneming zonder rechtspersoonlijkheid. Natuurlijk persoon die zelfstandige activiteit doet op eigen naam. Er is geen scheiding tussen prive-vermogen en het vermogen van de zaak."],
+    ["Onbeperkte aansprakelijkheid", "Schuldeisers kunnen zich verhalen op het private vermogen van de handelaar."],
+    ["BV", "Besloten vennootschap. Een rechtspersoon waarbij de middelen afgescheiden zijn van het privevermogen van de aandeelhouders (beperkte aansprakelijkheid)<br>Kenmerken: Geen minimumkapitaal vereist, financieel plan is verplicht, verschillende soorten aandelen, vrije overdraagbaarheid van aandelen, oprichting per notariele akte,.."],
+    ["NV", "Naamloze vennootschap/kapitaalvenootschap met beperkte aansprakelijkheid.<br>Kenmerken:<ul><li>Aansprakelijkheid beperkt tot eigen inbreng.</li><li>Eén Aandeelhouder, natuurlijke of rechtspersoon.</li><li>Minimaal 61.500 euro oprichtingskapitaal.</li><li>Financieel plan.</li><li>Varierend stemrecht per aandeel.<br>Varierende bestuursvormen.</li></ul>"],
+    ["Personenbelasting", "Prive-inkomstenbelasting, belasting op het totaal inkomen van natuurlijke personen (werknemers, zelfstandigen). Progressieve tarieven tot 50%. Bij een eenmanszaak wordt de gerealiseerde winst integraal belast in de personenbelasting."],
+    ["Vennootschapsbelasting", "Belasting op de winst van de vennootschap met een vast basistarief van 25%."],
+    ["Roerende inkomsten", "Inkomsten uit roerende goederen als dividend, bedrijfsbezoldiging,..."],
+    ["Onroerende inkomsten", "Inkomsten uit onroerend goed zoals huur."],
+    ["Beroepsinkomsten", "Inkomsten uit de activiteit als zelfstandige."],
+    ["Progressieve tarieven", "Stijgende personenbelastingen adhv de hoeveelheid inkomsten."],
+    ["Leverancierskrediet", "Leverancier geeft uitstel van betaling aan zijn klant."],
+    ["Kaskrediet", "Toelating verleent door de bank om tot een bepaald overeengekomen bedrag onder nul te gaan op de rekening courant (gekoppeld aan waarborg)."],
+    ["Straight loans", "Ontleningen om een vast bedrag op te nemen voor een vaste termijn aan een vooraf bepaalde rentevoet met als doel een tijdelijk liquiditeitstekort te overbruggen waarvan het bedrag al gekend is."],
+    ["Hypotheekcontract", "Lening waarbij het onroerend goed ook de waarborg is voor de bank. Wordt opgesteld bij authentieke akte en is dus rechtstreeks uitvoerbaar."],
+    ["Hypothecaire lening", "Lening voor onroerend goed."],
+    ["Lening aflossen met een vast bedrag", "Constante aflossing of vaste mensualiteiten. Er wordt steeds hetzelfde bedrag afbetaald. Doorheen de tijd wordt de kapitaalsaflossing groter maar neemt de intrest af."],
+    ["Lening aflossen met vaste kapitaalsaflossing", "Degressieve aflsosing. De kapitaalskost is steeds dezelfde met daarbij intrest op het niet terugbetaalde gedeelte. Die neemt dus ieder jaar af."],
+    ["Overbruggingskrediet", "Eenmalige terugbetaling van het kapitaal. Over de looptijd heen wordt enkel rente betaald. Het kapitaal wordt volledig betaald aan het einde van de looptijd."],
+    ["Hypothecair mandaat", "Hypothecaire volmacht. Toelating die de lener geeft aan de leninggever om de hypothecaire inschrijving te nemen indien nodig."],
+    ["Hypotheekbelofte", "Overeenkomst tussen klant en kredietgever voor het nemen van de hypotheek op een onroerend goed. Je doet de belofte dat er geen hypothecaire inschrijving rus in het voordeel van andere schuldeisers."],
+    ["Investeringskrediet", "Kredietvorm waarbij de verstrekker een bepaald bedrag ter beschikking stelt op (half)lange termijn aan een vaste of variabele rentevoet met een aflossingschema met als doel investeringen voor beroepsdoeleinden te financieren."],
+    ["Kopen/lening op afbetaling", "Contract tussen financiële instelling en de koper waarbij de bank de verkoper betaalt."],
+    ["Leasing", "Contract tussen twee partijen waarbij de leasinggever een goed verhuurt aan de leasingnemer voor een bepaald bedrag met eventuele aankoopoptie (restwaarde) bij het einde van de looptijd."],
+    ["Financiele leasing", "Leasing waarbij de huurgelden plus het bedrag van de aankoopoptie het volledige kapitaal dekken van de investering van de leasegever. Geleasde goed kan op de balans van de nemer geactiveerd worden en het mag afgeschreven worden."],
+    ["Operationele leasing", "Leasing waarbij aankoopoptie hoger is dan 15% waardoor het boekhoudkundig behandeld dient te worden als een huur."],
+    ["Achtergestelde lening", "Krediet waarbij de schuldeiser bij faillissement pas zijn geld terugkrijgt nadat alle andere schuldeisers zijn betaald."],
+    ["Hospitalisatieverzekering", "Dekking van de ziekenhuiskosten aanvullend op het ziekenfonds."],
+    ["Ziekteverzekering", "(verplichte) Verzekering bij een ziekenfonds, dekt ziektekosten."],
+    ["Wettelijk pensioen", "Onderdeel van de wettelijke sociale verzekering die je pensioen waarborgd."],
+    ["Vrij aanvullend pensioen voor zelfstandigen", "Jaarlijks opzijzetten van een gedeelte van de bedrijfsinkomsten als aanvullend pensioen. Wordt uitbetaald op de pensioenleeftijd samen met intrest en winstdeelname. Fiscaal voordelig: aftrekbaar als beroepskost en minder (belasting op) nettobedrijfsinkomen."],
+    ["Pensioensparen", "Aanvullend pensioenspaarplan waarbij je iedere maand een vast bedrag opzijzet voor je pensioen."],
+    ["Burgelijke aansprakelijkheid", "Verplichting tot het vergoeden van schade toegebracht aan derden."],
+    ["BA brand en ontploffing", "Verzekering voor het dekken van zowel lichamelijke en stoffelijke schade. Verplicht voor bepaalde publiek toegankelijke ondernemingen."],
+    ["BA auto", "Burgerlijke aansprakelijkheid auto, de verzekering voor bedrijfsvoertuigen. Dekking van lichamelijke schade na auto-ongeval met uitzondering van de besuurder."],
+    ["Gebouw en inboedel bij brand", "Risico gedekt door brandverzekering. Uitgebreide polis: dekt ook andere schade en BA van eigenaar of huurder."],
+    ["Verplichte verzekeringen persoonlijke risico's", "<ul><li>Ziekteverzekering</li><li>Arbeidsongeschiktheid</li><li>Pensioen</li><li>Overbruggingsrecht</li><li>Arbeidsongeschiktheid</li><li>Gezinsbijslag</li></ul>"],
+    ["Verplichte verzekeringen aansprakelijkheids risico's", "<ul><li>Burgerlijke aansprakelijkheid auto</li><li>Arbeidsongevallen verzekering personeel</li><li>BA brand en ontploffing</li><li>Beroepsaansprakelijkheidsverzekering</li></ul>"],
+    ["KvC", "Korting voor contant, een financiële korting die wordt toegestaan bij contante betaling.<br>Wanneer de KvC voorzien is mag de MvH verminderd worden met die korting, of de klant tijdig betaald heeft of niet.<br>Moet niet cash betaald worden, mag ook digitaal of per overschrijving.<br>Meestal wordt een periode van 7 dagen en een percentage van 1 à 2 gehanteerd (100% is fraude)."],
+    ["MvH", "Maatstaf van heffing. Het bedrag waarop de BTW berekend wordt en uiteindelijk bij het subtotaal geteld wordt."],
+    ["Intracommunautaire levering", "ICL afgekort, aankopen en verkopen binnen de Europese Unie (met uitzondering België).<br>Handeling vrijgesteld van BTW enkel van toepassing bij B2B bij belastingsplichtigen die aangifte plichtig zijn."],
+    ["Uitvoer", "Aankopen en verkopen buiten de Europese Unie. Deze goederen moeten voorbij de douane, die stelt dan een aparte factuur op met het BTW-bedrag (+ eventuele in-/uitvoerrechten).<br>Handeling vrijgesteld van BTW enkel van toepassing bij B2B bij belastingsplichtigen die aangifte plichtig zijn."],
+    ["BTW-medecontractant", "Leveringen van werken in onroerende staat van BTW-plichtigen. Alle werken die uitgevoerd worden aan gronden en vastgoed waarbij we schade toebrengen aan de grond/vastgoed wanneer we het willen verwijderen.<br>Handeling vrijgesteld van BTW enkel van toepassing bij B2B bij belastingsplichtigen die aangifte plichtig zijn."],
+    ["B2C", "Business to consumer. We leveren aan een particulier goederen of diensten bestemt voor privé gebruik. Geen factuur nodig."],
+    ["B2B", "Business to business. We leveren aan een onderneming goederen of diensten bestemt voor beroepsgebruik. Een factuur is steeds verplicht. Belastingsplichtige <-> belastingsplichtige."],
+    ["Terugstuurbare verpakking", "Een verpakking die de klant moet terugbrengen. In tegenstelling tot verloren verpakking, behoort dit nooit tot de maatstaf van heffing. Voorbeeld: waarborg op leeggoed."],
+    ["Creditnota", "Een document dat aangeeft hoeveel een klant terugkrijgt na een teveel aanrekenen. Dit kan zijn door een rekenfout, kwaliteitsgebrek, een verkeerde levering... vervoerskosten kunnen NOOIT worden gerecupereerd, tenzij de volledige lading wordt teruggestuurd.<br>Indien er oorspronkelijk handelskorting werd gegeven, dan zal ook dit in de creditnota verrekend worden.<br>Er moet altijd verwezen worden naar de factuur waarop de creditnota betrekking heeft."],
+    ["BTW", "Belasting over toegevoegde waarde, omzetbelasting = feitenbelasting. Elk feit (elke verkoop) wordt apart geëvalueerd. Hierin verschilt BTW met de personenbelasting."],
+    ["Terug te vorderen BTW", "Aftrekbare BTW (terug te krijgen van de staat). De BTW die een onderneming betaalt aan zijn leverancier."],
+    ["Te betalen BTW", "Verschuldigde BTW (aan de staat). De BTW die een onderneming ontvangt van zijn klant. (Dit is geen opbrengst)."],
+    ["Toegevoegde waarde", "Het verschil tussen de aanschafwaarde en de prijs van de verkoop."],
+    ["Balans", "Een momentopname van wat er op dat moment beschikbaar is in werk- en financieringsmiddelen. De balans is een tweedelige tabel met links de activa (werkmiddelen) en rechts de passiva (financieringsmiddelen).<br>Een belangrijk kenmerk is dat de totalen van links en rechts hetzelfde geldbedrag aangeven."],
+    ["Actief", "<strong>Actief</strong> (ook wel activa genoemd): <ul><li>Vaste middelen, bezittingen met blijvend karakter. Ondernemer gaat ze niet verkopen aan klanten maar lange tijd gebruiken in het bedrijf.</li><li>Vlottende middelen, hebben rechtstreeks met de dagelijkse aan- en verkoopverrichtingen te maken. De waarde zal dus voortdurend wijzigingen ondergaan, integenstelling tot de vaste middelen.</li></ul>"],
+    ["Passief", "<strong>Pasief</strong> (ook wel passiva genoemd):<ul><li>Eigen vermogen, datgene wat de ondernemer(s)/aandeelhouder(s) zelf inbrengen en de opbouw van dat eigen vermogen. Vb: niet uitgekeerde winsten = reserves.</li><li>Vreemd vermogen, financiering waarbij de onderneming beroep doet op derden.</li></ul>"],
+    ["Afschrijving", "Het principe om een investering of kosten van een aankoop te spreiden over de tijd. Omdat investeringsgoederen minderen in waarde over de tijd, op deze manier probeert men dit in een bedrag om te zetten."],
+    ["Lineaire afschrijving", "Constante afschrijving (de meest simpele). Er wordt elk boekjaar hetzelfde bedrag afgeschreven. Formule: a= (Aw -Rw)/n <br>met Aw de aanschaffingswaarde, Rw de restwaarde en n het aantal jaar."],
+    ["Degressieve afschrijving", "Enkel bij eenmanszaken! De afschrijvingsbedragen nemen af elk boekjaar. Enkele voorwaarden: <ul><li>Enkel toepasselijk voor erkende activa.</li><li>Het afschrijvingspercentage mag nooit meer dan het dubbele van de lineaire afschrijving bedragen, met een limiet tot 40% voor het eerste jaar.</li><li>Indien afschrijvingsbedrag < lineair bedrag MOET men overstappen naar lineaire methode.</li><li>Uitdrukkelijke aanvraag en toelating van de fiscus.</li></ul>"],
+    ["Afschrijving volgens prestaties", "Wordt gebruikt vooral bij rollend materieel. Afschrijvingen laten veranderen in functie van de sterk wisselende aanwindingen van een investering. Vb: heftruck afschrijven op basis van de geschatte levensduur in uren (pg 100)."],
+    ["Pro Rata principe", "Een aankoop van een investeringsgoed tijdens het jaar door een vennootschap (niet eenmanszaak) moet via dit principe afgeschreven worden (sinds 2020). Afschrijven volgens de resterende duur van het boekjaar in verhouding tot de duur van het hele boekjaar. Dit kan per maand, week of dag."],
+    ["Resultatenrekening", "De winst-en-verliesrekening of exploitatierekening, geeft een overzicht van de opbrengsten en kosten van de onderneming over een bepaalde periode."],
+    ["Bruto bijdrage", "Het verschil tussen een verkoopprijs van een product en de variabele kosten van dat product. Verminderen we het BB met de vaste kosten, dan zien we of we winst of verlies maken.<br>Kort: negatief BB is verlies, positief BB KAN winstgevend zijn."],
+    ["Directe kosten", "Kosten die zonder veel problemen kunnen toegewezen worden aan de productie waarvoor die kosten gemaakt werden. (Op het examen zal dit meegegeven worden en zou dit niet voor interpretatie vatbaar zijn.)"],
+    ["Indirecte kosten", "Kosten die niet onmiddellijk kunnen gelinkt worden met een product."],
+    ["Variabele kosten", "Zijn kosten die veranderen met de veranderingen in de bedrijfsdrukte; stijgt de productie dan stijg de kost. <br>De kost per eenheid blijft gelijk ongeacht de hoeveelheid stuk geproduceerd."],
+    ["Vaste kosten", "Zijn kosten die ongevoelig zijn voor veranderingen in de bedrijfsdrukte. Ze veranderen dus niet bij een wijziging van de productiehoeveelheid, enkel bij een wijziging in productiecapaciteit. <br>De kosten per eenheid dalen naar gelang het aantal stuks stijgt."],
+    ["RSVZ", "Rijksinstituut voor Sociale Verzekering der Zelfstandigen, het Sociaal verzekeringsfonds SVF waar de zelfstandige bij aangesloten is, stort de bijdrage hiernaar toe. RSVZ verdeelt de gelden van pensioenen en van gezinsbijlagne."],
+    ["RIZIV", "Verdeelt gelden van de gezondheidszorgen en de uitkeringen voor arbeidsongeschiktheid."],
+    ["Zelfstandige", "Een natuurlijk persoon wie werkt voor eigen rekening en niet gebonden is door een arbeidsovereenkomst. Je mag niet werken voor een andere baas om zelfstandig te zijn."],
+    ["Hoofdberoep", "Iemand die geen ander beroep uitoefent naast zelfstandige activiteit is een zelfstandige in hoofdberoep.<br>Hiertoe behoren: <ul><li>uitbaters van een eenmanszaak</li><li>vrije beroepen (dokters, advocaten,...)</li><li>zaakvoerders/bestuurders van een BV of NV</li><li>werkende vennoten</li></ul>"],
+    ["Bijberoep", "Een zelfstandige in bijberoep ben je als; <ul><li>loon- of weddetrekkende bent in hoofdberoep</li><li>OF een uitkering krijgt</li><li>OF gepensioneer bent</li><li>EN je bijkomend een zelfstandige activiteit uitoefent.</li></ul><br>Je moet in de andere activiteit minsten halftijdse prestaties leveren. Je bouwt geen rechten op tenzij je minstens de minimumbijdrage van een zelfstandige in hoofdberoep betaalt."],
+    ["Sociale uitkeringen", "Pensioen en gezinsbijlage zijn idem voor zelfstandige en loontrekkende.<br>Het verschilt zit hem vooral in (zelfstandige vs loontrekkende):<ul><li>Ziekteverzekering<li>vanaf dag 1 maar minsten 8dagen ongeschikt VS gewaarborgd loon</li></li><li>Gezondheidszorgen</li><li>Vroeger enkel grote risico's VS grote en kleine risico's terugbetaald.</li><li>Ouderschap<li>3weken verplicht + 9 weken aanvullend + 105 gratis dienstencheques voor huishoudhulp VS 15 weken</li></li></ul>"]
+];
+
+const elList = document.getElementById('term-list');
+const counterE = document.getElementById('teller');
+const elUitleg = document.getElementById('uitleg');
+const elTerm = document.getElementById('term');
+
+var term = terms[0];
+var usedIndexes = [];
+var clicks = 0;
+var isExplanationVisible = false;
+
+let currentIndex = 0;
+
+const isDrawn = i => {
+    var index = 0;
+    var found = false;
+    while (index < usedIndexes.length && !found) {
+        if (usedIndexes[index] === i) {
+            found = true;
+        }
+        index++;
+    }
+    return found;
+};
+
+const generateTerm = () => {
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * terms.length);
+    } while (newIndex === currentIndex && terms.length > 1);
+    currentIndex = newIndex;
+    clicks++;
+    renderCard();
+};
+
+const showAnswer = () => {
+    const answer = term[1];
+    elUitleg.innerHTML = answer;
+    isExplanationVisible = true
+};
+
+const emptyAll = () => {
+    elTerm.textContent = "Term:";
+    elUitleg.textContent = "";
+};
+
+const reset = () => {
+    clicks = 0;
+    usedIndexes = [];
+    emptyAll();
+    counterE.textContent = `(${clicks} / ${terms.length})`;
+};
+
+function renderList() {
+    elList.innerHTML = '';
+    terms.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'list-item'; //nog een class voor opmaak toekennen
+        li.textContent = item[0];
+        li.dataset.index = index;
+
+        li.addEventListener('click', () => {
+            currentIndex = index;
+            isExplanationVisible = false;
+            renderCard();
+            updateActiveListState();
+            showAnswer();
+        });
+
+        elList.appendChild(li);
+    });
+    updateActiveListState()
+};
+
+function renderCard() {
+    term = terms[currentIndex];
+    emptyAll();
+    const vraag = term[0];
+    elTerm.textContent = "Term: " + vraag;
+    usedIndexes.push(currentIndex);
+    if (clicks > terms.length) {
+        reset();
+        generateTerm();
+    }
+    counterE.textContent = `(${clicks} / ${terms.length})`;
+    isExplanationVisible = false;
+
+};
+
+function updateActiveListState() {
+    const items = elList.querySelectorAll('li');
+    items.forEach((li) => {
+        const idx = parseInt(li.dataset.index);
+        if (idx === currentIndex) {
+            li.classList.add('active');
+            li.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            li.classList.remove('active');
+        }
+    });
+};
+
+//Initialiseren
+counterE.textContent = `(${clicks} / ${terms.length})`;
+renderList();
+generateTerm();
