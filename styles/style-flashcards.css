@@ -63,8 +63,9 @@ aside {
     border: 1px rgb(61, 61, 61) solid;
     border-radius: 8px;
     margin: 0;
-    padding: 0px 16px;
+    padding: 0px 16px 16px;
     background-color: #1D1D1D;
+    max-width: 380px;
 }
 
 button {
@@ -113,6 +114,10 @@ button:focus {
 
 u {
     display: inline;
+}
+
+p#uitleg>ul {
+    padding: 0.5rem 2rem;
 }
 
 .list-item {

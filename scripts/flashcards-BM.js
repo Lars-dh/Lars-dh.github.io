@@ -89,6 +89,12 @@ const terms = [
     ["Sociale uitkeringen", "Pensioen en gezinsbijlage zijn idem voor zelfstandige en loontrekkende.<br>Het verschilt zit hem vooral in (zelfstandige vs loontrekkende):<ul><li>Ziekteverzekering<li>vanaf dag 1 maar minsten 8dagen ongeschikt VS gewaarborgd loon</li></li><li>Gezondheidszorgen</li><li>Vroeger enkel grote risico's VS grote en kleine risico's terugbetaald.</li><li>Ouderschap<li>3weken verplicht + 9 weken aanvullend + 105 gratis dienstencheques voor huishoudhulp VS 15 weken</li></li></ul>"]
 ];
 
+terms.sort((a, b) => {
+    if (a[0] < b[0]) return -1;
+    if (a[0] > b[0]) return 1;
+    return 0
+});
+
 const elList = document.getElementById('term-list');
 const counterE = document.getElementById('teller');
 const elUitleg = document.getElementById('uitleg');
@@ -99,7 +105,7 @@ var usedIndexes = [];
 var clicks = 0;
 var isExplanationVisible = false;
 
-let currentIndex = 0;
+var currentIndex = 0;
 
 const isDrawn = i => {
     var index = 0;
@@ -115,10 +121,16 @@ const isDrawn = i => {
 
 const generateTerm = () => {
     let newIndex;
+    if (clicks === terms.length) {
+        clicks = 0;
+        usedIndexes = [];
+        counterE.textContent = `(${clicks} / ${terms.length})`;
+    }
     do {
         newIndex = Math.floor(Math.random() * terms.length);
-    } while (newIndex === currentIndex && terms.length > 1);
+    } while (isDrawn(newIndex));
     currentIndex = newIndex;
+    usedIndexes.push(currentIndex);
     clicks++;
     renderCard();
 };
@@ -137,11 +149,12 @@ const emptyAll = () => {
 const reset = () => {
     clicks = 0;
     usedIndexes = [];
-    emptyAll();
+    // emptyAll();
     counterE.textContent = `(${clicks} / ${terms.length})`;
+    generateTerm();
 };
 
-function renderList() {
+const renderList = () => {
     elList.innerHTML = '';
     terms.forEach((item, index) => {
         const li = document.createElement('li');
@@ -162,22 +175,16 @@ function renderList() {
     updateActiveListState()
 };
 
-function renderCard() {
+const renderCard = () => {
     term = terms[currentIndex];
     emptyAll();
     const vraag = term[0];
     elTerm.textContent = "Term: " + vraag;
-    usedIndexes.push(currentIndex);
-    if (clicks > terms.length) {
-        reset();
-        generateTerm();
-    }
     counterE.textContent = `(${clicks} / ${terms.length})`;
     isExplanationVisible = false;
-
 };
 
-function updateActiveListState() {
+const updateActiveListState = () => {
     const items = elList.querySelectorAll('li');
     items.forEach((li) => {
         const idx = parseInt(li.dataset.index);
