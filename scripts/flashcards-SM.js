@@ -1,4 +1,4 @@
-const terms = [
+const termsHW = [
     ["Desktop", "Persoonlijke computer voor algemeen dagelijks gebruik. Heeft een CPU, RAM, GPU, opslag en randapparatuur. Relatief goedkoop, flexibel uitbreidbaar maar beperkt in schaalbaarheid."],
     ["Server", "Computer die diensten levert aan tientallen tot duizende clients (gebruikers) tegelijk. Moet betrouwbaar zijn 24/7 gebruik, vaak met redundante voedingen, ECC-geheugen en RAID opslag."],
     ["Mainframe", "Zeer krachtige betrouwbare systemen voor massale transactie-verwerkingen. Duizendene gelijktijdigen gebruikers. Denk aan banken, verzekeringen luchtvaar, sectoren waar betrouwbaarheid en schaalbaarheid essentieel zijn. Mainframes zijn extreem robuust en hebben een beschikbaarheid tot 99,999%."],
@@ -8,11 +8,11 @@ const terms = [
     ["CPU", "Zijn de hersenen van de computer. Taken: Instructies ophalen &rarr; Decoderen &rarr; Uitvoeren &rarr; Resultaat wegschrijven.<br>Belangrijke onderdelen: ALU (rekenkundige & logische bewerkingen), CU (coördineert de uitvoering) en Registers (snelle tijdelijke opslag)"],
     ["Registers - CPU", "Snelle tijdelijke opslag;<ul><li>MAR</li><li>MDR</li><li>ACC</li><li>PC</li><li>CIR</li></ul>"],
     ["Ontwikkeling - CPU", "Jaren '90 single core, hogere kloksnelheden.<br>Late jaren '90 superscalar &rarr; meerdere instructies per klokcyclus.<br>2000 hyperthreading (Intel), eerste dual-core CPU's.<br>2010 veel cores, verbeterde out-of-order execution.<br>2020 AI-geoptimaliseerde multi-core CPU."],
-    ["Pipelining", "Overlappende instructieverwerking &rarr; hogere efficiëntie."],
-    ["Superscalar", "Meerdere instructies parallel uitvoeren."],
-    ["Hyperthreading", "1 Fysieke kern werkt als 2 logische cores."],
-    ["Multi-core", "Meerdere kernen op één chip."],
-    ["Out-of-Order Execution", "Instructies uitvoeren zodra resources beschikbaar zijn."],
+    ["Pipelining - CPU", "Overlappende instructieverwerking &rarr; hogere efficiëntie."],
+    ["Superscalar - CPU", "Meerdere instructies parallel uitvoeren."],
+    ["Hyperthreading - CPU", "1 Fysieke kern werkt als 2 logische cores."],
+    ["Multi-core - CPU", "Meerdere kernen op één chip."],
+    ["Out-of-Order Execution - CPU", "Instructies uitvoeren zodra resources beschikbaar zijn."],
     ["Intel", "+: Hyperthreading, energiezuinig, sterke single-core prestaties.<br>-: Hoge prijzen, stagnatie rond 2015.<br>Focus: Efficiëntie, geïntegreerde GPU's."],
     ["AMD", "+: Meer cores/threads, top prijs-prestatie (Ryzen).<br>-: Vroeger zwakke single-thread prestaties (later verbeterd).<br>Focus: Multi-core kracht, open-source support."],
     ["ARM voordelen (long awnser)", `Energiezuinig, ideaal voor smartphones, tablets, laptops en datacenters die efficiëntie nodig hebben.<br>
@@ -32,11 +32,11 @@ const terms = [
     ["Voorbeelden AMD-processors", "Ryzen series voor desktop. EPYC voor servers en datacenters."],
     ["Voorbeelden Intel-processors", "Core iX-reeks, Intel cpu's zijn voornamelijk voor desktop."],
     ["SoC", "System-on-a-chip"],
-    ["Thread", "Kleinste uitvoereenheid binnen een proces."],
-    ["Multithreading", "Softwermatig meerdere threads per proces."],
-    ["Hyperthreading", "Hardwarematig meerdere threads per kern."],
-    ["Throughput", "Is de hoeveelheid instructies per tijdseenheid. Hangt af van een aantal factoren:<br>Kloksnelheid<br>Aantal cores<br>Architectuur (OOE, superscalar, etc.)<br>Bottlenecks: geheugen en opslag!"],
-    ["Koeling", `Kan op 2 manieren: passief en actief.<br>
+    ["Thread - CPU", "Kleinste uitvoereenheid binnen een proces."],
+    ["Multithreading - CPU", "Softwermatig meerdere threads per proces."],
+    ["Hyperthreading - CPU", "Hardwarematig meerdere threads per kern."],
+    ["Throughput - CPU", "Is de hoeveelheid instructies per tijdseenheid. Hangt af van een aantal factoren:<br>Kloksnelheid<br>Aantal cores<br>Architectuur (OOE, superscalar, etc.)<br>Bottlenecks: geheugen en opslag!"],
+    ["Koeling - CPU", `Kan op 2 manieren: passief en actief.<br>
         Passieve koeling kan met heatsinks en thermal paste.<br>
         <br>
         Actieve koeling kan op verschillende manier:<br>
@@ -44,8 +44,8 @@ const terms = [
         Efficiënter, stiller en populair in high-end systemen is vloeistofkoeling. (vanaf de 2000s en AIO-waterkoeling vanaf de jaren 2010s)<br>
         Peltier, niche en hoog in energieverbruik.<br>
         LN2 extreem enkel voor overklokken.`],
-    ["Wet van Moore", "De Wet van Moore stelt dat transistoren verdubbelen elke ±2 jaar. Maar vandaag zit daar vertraging op door de focus op energieberheer en parallelle verwerking. Hogere kloksnelheden zorgen namelijk voor warmte en meer energieverbruik, de oplossing ligt hem in het multi-core architectuur ipv in de kloksnelheden."],
-    ["TDP", "Thermal Design Power, maximale warmte 'W' die CPU kan afgeven bij belasting. Dit bepaalt de koelingsvereisten. Hogere TDP is vaak hogere prestaties maar meer koeling is vereist.<br>Niet gelijk aan stroomverbruik! CPU kan meer gebruiken met boost-technologie (voorbeeld Intel i7-12700K heeft 125W en AMD Ryzen 9 heeft 105W maar kan toch hoger pieken)."],
+    ["Wet van Moore - CPU", "De Wet van Moore stelt dat transistoren verdubbelen elke ±2 jaar. Maar vandaag zit daar vertraging op door de focus op energieberheer en parallelle verwerking. Hogere kloksnelheden zorgen namelijk voor warmte en meer energieverbruik, de oplossing ligt hem in het multi-core architectuur ipv in de kloksnelheden."],
+    ["TDP - CPU", "Thermal Design Power, maximale warmte 'W' die CPU kan afgeven bij belasting. Dit bepaalt de koelingsvereisten. Hogere TDP is vaak hogere prestaties maar meer koeling is vereist.<br>Niet gelijk aan stroomverbruik! CPU kan meer gebruiken met boost-technologie (voorbeeld Intel i7-12700K heeft 125W en AMD Ryzen 9 heeft 105W maar kan toch hoger pieken)."],
     ["RAM", "Random Acces Memory, werkgeheugen van een computer. Slaat tijdelijk gegevens en programmma's op die de processor actief gebruikt."],
     ["Eigenschappen RAM", "Volatiliteit, Ram is vluchtig geheugen, alle gegevens gaan verloren bij het uitschakelen.<br>Snelheid, RAM is veel sneller dan SSD's of harde schijven.<br>Random acces, directe toegang tot elke geheugencel zonder sequentieel lezen."],
     ["Werking RAM", "Bestaat uit een transistor en een condensator (bij DRAM) = geheugencel. Elke geheugencel bevat 1bit. Data schrijven of lezen gebeurt door een specifieke rij en kolom van het geheugen te selecteren."],
@@ -61,17 +61,17 @@ const terms = [
     ["VRAM", "Speciaal RAM voor grafische kaarten (GPU) en is dual-ported. Wordt vooral gebruikt voor 3D-modellering, grafische verwerking en gaming."],
     ["NVRAM", "Voor permanente opslag, behoudt data zonder stroom. Wordt gebruikt in BIOS-instellingen en embedded systemen."],
     ["Interne opslag", "Het geheugen van een computer dat permanent data bewaard. Belangrijke eigenschappen;<br>Niet vluchtig, gegevens blijven bewaard.<br>Capaciteit, opslag is meestal veel groter dan RAM.<br>Snelheid, afhankelijk van het type opslagmedium."],
-    ["PATA", "Parallel ATA, oude standaard voor harde schijven en CD-rom's die gebruik maakt van brede lintkabel voor dataoverdracht. Vooral bij oude desktops en laptops voor HDD.<br>Snelheid: tot 133MB/s<br>+: Was goedkoop en breed ondersteund.<br>-: Langzaam, weinig flexibel en grote kabels."],
-    ["SATA", `Serial ATA, moderne interface voor harde schijven en SSD's gebruikt smallere kabels en seriële overdracht. Wordt gebruikt bij HDD's, SSD's en optische schijven.<br>
+    ["PATA - Opslag", "Parallel ATA, oude standaard voor harde schijven en CD-rom's die gebruik maakt van brede lintkabel voor dataoverdracht. Vooral bij oude desktops en laptops voor HDD.<br>Snelheid: tot 133MB/s<br>+: Was goedkoop en breed ondersteund.<br>-: Langzaam, weinig flexibel en grote kabels."],
+    ["SATA - Opslag", `Serial ATA, moderne interface voor harde schijven en SSD's gebruikt smallere kabels en seriële overdracht. Wordt gebruikt bij HDD's, SSD's en optische schijven.<br>
         Snelheid: SATAI 1.5Gb/s, SATA II 3Gb/s, SATA III 6Gb/s<br>
         +: Sneller dan PATA, kleinere kabels, hot-swappable<br>
         -: Beperkt door SATA-brandbreedte`],
-    ["SSD", "Solid State Drive, wordt gebruikt voor besturingsystemen, progromma's en high-performance opslag. Maakt gebruik van flashgeheugen, NAND, in plaats van draaiende schijven.<br>+: Zeer snel, stil en geen bewegende delen<br>-: Duurder per GB dan HDD's, slijtage na veel schrijfcycli"],
-    ["M.2 SSD", `Fysieke vormfactor voor SSD's, kan SATA of NVMe ondersteunen. Snelle opslag in laptops en desktops, gaming en werkstations.<br>
+    ["SSD - Opslag", "Solid State Drive, wordt gebruikt voor besturingsystemen, progromma's en high-performance opslag. Maakt gebruik van flashgeheugen, NAND, in plaats van draaiende schijven.<br>+: Zeer snel, stil en geen bewegende delen<br>-: Duurder per GB dan HDD's, slijtage na veel schrijfcycli"],
+    ["M.2 SSD - Opslag", `Fysieke vormfactor voor SSD's, kan SATA of NVMe ondersteunen. Snelle opslag in laptops en desktops, gaming en werkstations.<br>
         +: Zeer compact, hoge snelheden (vooral NVMe)<br>
         -: Duur, sommige moederborden hebben beperkte M.2-poorten`],
-    ["NVMe", "Non-Volatile Memory express, Interface voor SSD's die PCIe-bus gebruikt. Speciaal ontworpen voor flashgeheugen. High-performance opslag, professionele en gaming toepassing.<br>+: Veel sneller dan SATA-SSD en lage latency<br>-: Duurder dan SATA-SSD, voor compabiliteit is PCIe/M.2-slot vereist"],
-    ["SSHD", `Hybrid Drives, combinatie van HDD en een kleine SSD-cache. Consumentencomputers die snelheid en capaciteit willen combineren.<br>
+    ["NVMe - Opslag", "Non-Volatile Memory express, Interface voor SSD's die PCIe-bus gebruikt. Speciaal ontworpen voor flashgeheugen. High-performance opslag, professionele en gaming toepassing.<br>+: Veel sneller dan SATA-SSD en lage latency<br>-: Duurder dan SATA-SSD, voor compabiliteit is PCIe/M.2-slot vereist"],
+    ["SSHD - Opslag", `Hybrid Drives, combinatie van HDD en een kleine SSD-cache. Consumentencomputers die snelheid en capaciteit willen combineren.<br>
         +: Snellere toegang tot veelgebruikte data, grotere opslagcapaciteit tegen lagere prijs<br>
         -: Nog steeds beperkt door de mechanische HDD voor grote data`],
     ["GPU", "Graphics Processing Unit, Grafische kaart, hardwarecomponent die beelden, video en 3D-grafiek verwerkt en naar het beeldscherm stuurt.<br>Belangrijke functies:<br>Renderen van 2D en 4D graphics.<br>Afhandelen van grafisch intensieve taken zoals games, CAD-software en videoverwerking.<br>Ontlast de CPU bij grafische berekeningen.<br><br>Belangrijke onderdelen:<br>GPU Chip, het hart van de kaart, verwerkt grafische data en berekeningen.<br>VRAM, slaat tijdelijke grafische data op zoals texturen en framebuffers.<br>Koeling, ventilator of heatsink om oververhitting te voorkomen.<br>PCIe-interface, verbindt de kaart met het moederbord.<br>Uitgangen, HDMI, DisplayPort, DVI, VGA voor monitoren."],
@@ -91,7 +91,7 @@ const terms = [
         PCIe x16, standaard voor grafische kaarten biedt maximale bandbreedte<br>
         Bandbreedte, PCIe 3.0 x16: 16GB/s, PCIe 4.0 x16: 32GB/s, PCIe 5.0 x16: 64GB/s<br>
         Op afbeelding met meerdere PCIe is de PCIe x16 de tweede langste.`],
-    ["Uitgangen", "Van laagste naar hoogste ondersteunende resolutie:<br>VGA tot 2048x1536 verouderd werkt nog analoog<br>DVI tot 2560x1600 monitoren en projectoren<br>HDMI (ook audio) 4K/60Hz+ TV's en monitoren<br>DisplayPort 8K/60Hz+ gaming en professionele monitoren"],
+    ["Uitgangen - GPU", "Van laagste naar hoogste ondersteunende resolutie:<br>VGA tot 2048x1536 verouderd werkt nog analoog<br>DVI tot 2560x1600 monitoren en projectoren<br>HDMI (ook audio) 4K/60Hz+ TV's en monitoren<br>DisplayPort 8K/60Hz+ gaming en professionele monitoren"],
     ["Snellheidsfactoren van een GPU", "CUDA/ Stream Processors, hoeveel kleine verwerkingsuints de GPU heeft.<br>Kloksnelheid, hoe snel de GPU berekeningen uitvoert (vb MHz of GHz).<br>VRAM-capaciteit en snelheid, hoeveel grafische data tegelijk opgeslagen kan worden.<br>Busbreedte, breedte van de interface tussen GPU en VRAM (vb 256-bit, 512-bit)."],
     ["Moederbord", "Het centrale circuitbord van een computer. Het verbindt alle componenten zodat ze met elkaar kunnen communiceren.<br>Belangrijke functies:<br>Fysieke basis en voedingsvoorziening voor componenten<br>Communicatie via bussen en interfaces<br>Bevat sloten en poorten voor uitbreidingen"],
     ["Moederbordformaten", `Mini-ITX 170 x 170 zeer compact, 1 PCIe-slot, gebruikt bij HTPC, kleine systemen.<br>
@@ -106,19 +106,66 @@ const terms = [
     ["SATA bus", "Verbindt de opslag (HDD en SSD) met chipset. Seriële verbinding en hot-swapable.<br>Snelheid: 1.5-6G b/s (SATA III)"],
     ["Externe apparaten met moederbord verbinden", "Kan via USB, Thunderbolt en andere I/O buses. Hot-plug, externe data en voeding.<br> Snelheid afhankelijk van type:<br>USB 2.0; 480 Mb/s<br>USB 3.x; 5-20Gb/s<br>Thunderbolt 3/4; 40Gb/s"],
     ["Chipsets", "Bepalen welke CPU's, RAM, opslag en sloten worden ondersteund. Ze verdelen de functies tussen:<br>Northbridge, CPU, RAM en grafische bus (ouder).<br>Southbridge, I/O apparaten, opslag, PCI en USB.<br>Modern, vaak geïntegreerd in één PCH (Platform Controller Hub)"],
-    ["Slottypes", "<ul><li>PCI, Oude netwerk- en geluidskaarten</li><li>PCIe x1, Netwerk- en geluidskaarten</li><li>PCIe x4, Snellere uitbreidingen</li><li>PCIe x8, RAID-kaarten, netwerkkaarten</li><li>PCIe x16, Grafische kaarten</li><li>M.2, SSD's en WiFi-kaarten</li></ul>"]
+    ["Slottypes", "<ul><li>PCI, Oude netwerk- en geluidskaarten</li><li>PCIe x1, Netwerk- en geluidskaarten</li><li>PCIe x4, Snellere uitbreidingen</li><li>PCIe x8, RAID-kaarten, netwerkkaarten</li><li>PCIe x16, Grafische kaarten</li><li>M.2, SSD's en WiFi-kaarten</li></ul>"],
+    ["BIOS", "Basic Input Output System"],
+    ["UEFI", "Unified Extensible Firmware Interface"]
 ];
 
-terms.sort((a, b) => {
-    if (a[0] < b[0]) return -1;
-    if (a[0] > b[0]) return 1;
-    return 0;
-});
+const termsWin = [
+    ["OS ", "Operating System, besturingsysteem. Het is de software die als eerste wordt geladen na het opstarten van de computer. (Op de firmware na). Het beheert de hardware en software resources van een computersysteem. Het fungeert als een brug tussen de hardware en de gebruikersapplicaties."],
+    ["Belangrijke taken OS", "<ul><li>Hardwarebeheer</li><li>Process Management</li><li>File Management</li><li>Beveiliging</li><li>Gebruikersinterface</li><li>Netwerkbeheer</li></ul>"],
+    ["Hardware Management - OS", `<ul><li><b>CPU Management</b>, scheduling. Toewijzen van processortijd aan verschillende taken en processen.</li><li><b>Memory Management</b>, memory allocation. Toewijzen en vrijgeven van geheugen aan programma's en het beschermen van geheugenruimte tegen conflicten.</li><li><b>Device Management</b>, device drivers. Beheren van in- en uitvoerapparaten zoals printers, toetsenborden, muizen en harde schijven.</li><li><b>Storage Management</b>, file systems. Organiseren en beheren van bestanden en mappen op opslagapparaten.</li></ul>`],
+    ["Process Management - OS", `<ul><li><b>Creëren</b> en <b>beëindigen</b> van <b>processen</b> (programma's in uitvoering).</li><li>Plannen van de <b>volgorde</b> waarin processen worden uitgevoerd.</li><li>Synchroniseren en communiceren tussen processen. (=Inter-Process Communication).</li></ul>`],
+    ["File Management", `<ul><li>Organiseren van bestanden en mappen in een <b>hiërarchische</b> structuur.</li><li>Toegang verlenen tot bestanden en mappen op basis van <b>gebruikersrechten</b>.</li><li>Beheren van de opslagruimte op de harde schijf.</li></ul>`],
+    ["Beveiliging - OS", `<ul><li>Authenticatie van gebruikers (wachtwoorden, bimetrie).</li><li>Autorisatie van toegang tot resources (bestanden, mappen, applicaties).</li><li>Bescherming tegen malware en andere bedreigingen (Firewall, antivirus).</li></ul>`],
+    ["Gebruikersinterface - OS", `Een interface waarmee de gebruikers kunnen communiceren met de computer (GUI of Command Line).`],
+    ["Netwerkbeheer - OS", `<ul><li>Ondersteuning voor netwerkprotocollen (TCP/IP, DNS, DHCP).</li><li>Delen van resources over het netwerk (bestanden, printers).</li></ul>`],
+    ["Belangrijke besturingssystemen", `<ul><li>Windows</li><li>Linux</li><li>MacOS</li><li>Android</li><li>iOS</li><li>Chome OS</li><li>Unix</li><li>FreeBSD</li><li>Embedded Operating Systems</li></ul>`],
+    ["Windows - OS", "Geschiedenis:<br><ul><li><b>1985: Windows 1.0</b>: Een grafische schil op <b>MS-DOS</b>.</li><li><b>1990: Windows 3.0</b>: Verbeterde GUI, multitasking en geheugenbeheer.</li><li><b>1995: Windows 95</b>: Volledig 32-bit OS met nieuwe GUI en Plug-and-Play.</li><li><b>1998: Windows 98</b>: Verbeterde internetintegratie en hardware-ondersteuning.</li><li><b>2000: Windows 2000</b>: Gebaseerd op de NT-kernel, gericht op zakelijke gebruikers.</li><li><b>2001: Windows XP</b>: Een stabiel en populair OS voor zowel thuisgebruikers als bedrijven.</li><li><b>2006: Windows Vista</b>: Nieuwe GUI (Aero) en verbeterde beveiliging, maar minder populair vanwege prestatieproblemen.</li><li><b>2009: Windows 7</b>: Verbeterde prestaties en gebruikerservoaring ten opzichte van Vista.</li><li><b>2012: Windows 8</b>: Nieuwe interface gericht op touchscreens, wisselend ontvangen.</li><li><b>2015: Windows 10</b>: Universeel OS voor desktops, laptops, tablets en smartphones met continue updates.</li><li><b>2021: Windows 11</b>: Nieuwe gebruikersinterface, verbeterde prestaties en focus op gaming en productiviteit.</li></ul>"],
+    ["Linux - OS", "Ontwikkeld door <b>Linux Torvalds</b> als een open-source alternatief voor <b>MINIX</b>. De Linux Kernel gecombineerd met <b>GNU tools en libraries</b> om een compleet OS te vormen (=GNU project). Verschillende distro's die gekend zijn: Debian, Ubuntu, Fedora, Red Hat en SUSE.<br>Kenmerken van Linux: <ul><li><b>Open-source</b>, de broncode is vrij beschikbaar en kan worden aangepast.</li><li><b>Flexibel</b>, kan worden gebruikt als desktop, server, embedded systemen en supercomputers.</li><li><b>Stabiel en veilig</b>, bekend om zijn stabiliteit en beveiliging.</li></ul>"],
+    ["MacOS - OS", "Geschiedenis:<br><ul><li><b>1984: Macintosh OS (system1)</b>: De eerste GUI-gebaseerde OS voor personal computers.</li><li><b>1997: Mac OS 8</b>: Verbeterde stabiliteit en prestaties.</li><li><b>1999: Mac OS 9</b>: Laatste versie van het klassieke Mac OS.</li><li><b>2001: Mac OS X 10.0 (Cheetah)</b>: Gebaseerd op NeXTSTEP, met een moderne GUI en Unix-basis.</li><li><b>2007: MacOS 10.5 (Leopard)</b>: Verbeterde beveiliging en nieuwe functies zoals Time Machine.</li><li><b>2011: MacOS 10.7 (Lion)</b>: Integratie van functies van iOS (het OS voor iPhones en iPads).</li><li><b>2016: MacOS 10.12 (Sierra)</b>: Verbeterde Integratie met Siri en iCloud.</li><li><b>2020: MacOS 11 (Big Sur)</b>: Nieuwe interface en ondersteuning voor Apple Silicon (eigen processors).</li></ul><br>Kenmerken: <ul><li><b>Gebruiksvriendelijke</b> interface, bekend om zijn eenvoud en intuïtiviteit.</li><li><b>Stabiliteit</b>, gebouwd op een Unix-basis voor stabiliteit.</li><li><b>Integratie</b>, naadloze integratie met Apple hardware en services.</li><li><b>Beveiliging</b>, sterke beveiligingsfuncties.</li></ul>"],
+    ["Android - OS", "Een mobiel besturingssysteem gebaseerd op de Linux kernel, ontwikkeld door Google. Gebruikt op smartpohones, tablets, smartwatches en andere apparaten."],
+    ["iOS - OS", "Het mobiele OS van Apple voor iPhones, iPads en iPod Touch. Bekend voor gebruiksvriendelijkheid en integratie met het Apple ecosysteem."],
+    ["Chrome OS - OS", "Een lichtgewicht OS van Google ook gebaseerd op de Linux kernel. Vooral voor Chromebooks en webapps."],
+    ["Unix - OS", "Een familie van OS die bekend staan voor <b>stabiliteit</b> en <b>flexibiliteit</b>. Vb: Solaris, HP-UX, AIX."],
+    ["FreeBSD - OS", "Open-source Unix-achtig OS. Stabiel en uitgebreide netwerkfuncties."],
+    ["Embedded OS - OS", "OS ontworpen voor specifieke hardeware-apparaten, zoals auto's, huishoudelijke apparaten en industriële machines. Vb: VxWorks, QNX en FreeRTOS."],
+    ["Bootprocedure", "<ol><li><b>POST</b>, Power-On Self-Test</li><li><b>Opstartapparaten</b> initialiseren</li><li><b>Bootloader</b> laden</li><li><b>OS</b> laden</li><li><b>Windows</b> initialisatie</li><li>Windows 11 is <b>geladen</b></li></ol>"],
+    ["POST", "Stappen van de POST:<ol><li><b>Start</b> het moederbord krijgt stroom door indrukken aan-/uit-knop.</li><li><b>BIOS</b> of <b>UEFI initialisatie</b>, de chipset van het moederbord activeert de BIOS of UEFI.</li><li><b>POST</b>, de BIOS/UEFI voert een reeks test uit om te controleren of de hardware correct functioneert: <ul><li>Controle van CPU</li><li>Controle van RAM</li><li>Controle van GPU</li><li>Controle van andere essentiële hardware-componenten</li><li>Initialisatie hardware</li></ul></li><li><b>Foutafhandeling</b>, detectie van fouten &rarr; weergeven of opstartproces stoppen.</li><li><b>Succes POST</b>, alle test succesvol &rarr; volgende stap.</li></ol>"],
+    ["Opstartapparaten initialiseren", "<ul><li><b>Detectie</b> van opstartapparaten, de BIOS/UEFI zoekt naar opstartapparaten (harde schijven, SSD's, USB-sticks of netwerklocaties).</li><li><b>Boot order</b>, de opstartvolgorde, vooraf ingesteld zodat de BIOS/UEFI kan bepalen vanaf welk apparaat moet worden opgestart. Boot order kan gewijzigd worden in BIOS/UEFI-instellingen.</li><li><b>Selctie</b> opstartapparaat, het eerste opstartapparaat in de volgorde wordt geselecteerd.</li></ul>"],
+    ["Boatloader laden", "<ul><li>MBR of GPT:<ul><li><b>MBR</b>, Master Boot Record, zijn de eerste 512 bytes die de BIOS inleest van de schijf. Deze bevat de boatloader en de partitietabel.</li><li><b>GPT</b>, GUID Partition Table, zorgt ervoor dat de EUFI naar de ESP, EFI System Partition, zoekt. Deze bevat de boatloaders, drivers en andere hulpprogramma's.</li></ul></li><li><b>Bootloader</b> is een klein programma dat verantwoordelijk si voor het laden van het OS. <b>Windows Boot Manager</b> (bootmgr) is de bootloader van Windows, deze bevindt zich in de ESP van de GPT of de MBR op de schijf.</li><li>De bootloader wordt in het <b>geheugen</b> geladen en <b>uitgevoerd</b>.</li></ul>"],
+    ["Besturingssysteem laden", "<ul><li><b>Bootmgr</b> verschijnt of keuzemenu indien meerdere OS geïnstalleerd.</li><li><b>Kernel</b> (Windows) laden door bootloader en essentiële systeemdrivers in het geheugen. Windows-kernel = <b>ntoskrnl.exe</b>.</li><li><b>Hardware</b> initialisatie door de kernel en die creëert de basisstructuren die nodig zijn voor het besturingssysteem.</li></ul>"],
+    ["Windows initialisatie", "<ul><li><b>Windows Services</b> worden gestart door de kernel, die leveren essentiële functies (netwerkbeheer, apparaatbeheer en beveiliging).</li><li>De <b>aanmeldingsprompt</b> verschijnt, de gebruiker voert gebruikersnaam en wachtwoord in (= <b>gebruikersaanmelding</b>).</li><li> <b>Gebruikersprofiel</b> wordt gelanden inclusief instellingen, bureaublad en applicaties.</li>Windows 11 is nu geladen, het bureaublad wordt weergegeven en de gebruiker kan beginnen met het gebruik van de computer.</ul>"],
+    ["MBR VS GPT", "<table><thead><tr><th>Kenmerk</th><th>BIOS</th><th>UEFI</th></tr></thead><tbody><tr><td>Interface</td><td>Tekstgebaseerd</td><td>Grafisch</td></tr><tr><td>Opstartmethode</td><td>MBR</td><td>GPT</td></tr><tr><td>Ondersteuning</td><td>Beperkte ondersteuning voor grote schijven</td><td>Ondersteuning voor grote schijven</td></tr><tr><td>Beveiliging</td><td>Geen ingebouwde beveiligingsfuncties</td><td>Secure Boot</td></tr><tr><td>Snelheid</td><td>Langzamer</td><td>Sneller</td></tr><tr><td>Drivers</td><td>BIOS-interrupts</td><td>EUFI-drivers</td></tr></tbody></table>"],
+    ["Legacy Mode", "CSM, <b>Compatibility Support Module</b>, Emuleert de BIOS-functionaliteit op een UEFI-systeem. Ondersteunt oudere besturingssystemen of hardware die geen UEFI ondersteunen."],
+    ["Security Mode", "<b>Secure Boot</b> is een beveiligingsfunctie van UEFI die ervoor zorgt dat alleen vertrouwde software tijdens het opstartproces wordt geladen. Vereist dat de hardware, firmware en het OS Secure Boot ondersteunen (ondertekend door vertrouwde autoriteit). Het helpt beschermen tegen malware en rootkits."],
+    ["Opstartprocedure in MBR", "De opstartprocedure in Legacy Mode:<ol><li><b>POST</b> initialisatie.</li><li><b>MBR</b> laden van de opstartschijf door de BIOS.</li><li><b>Bootloader</b> wordt uitgevoerd (meestal NTLDR voor oudere Windows-versies of bootmgr voor nieuwe versies).</li><li><b>Besturingssysteem</b> laden, de bootloader laadt de <b>Windows-kernel</b> en <b>systeemdrives</b>.</li><li><b>Windows</b> wordt <b>geïnitialiseerd</b> en de gebruiker kan zich aanmelden.</li></ol>"],
+    ["Opstartprocedure in GPT", "De opstartprocedure in UEFI Mode met Secure Boot<ol><li><b>POST</b> initialisatie.</li><li>De <b>UEFI Firmware</b> wordt geïnitialiseerd.</li><li><b>Secure Boot</b> laat de UEFI firmware de bootloader controleren of die ondertekend is door vertrouwde autoriteit.</li><li>De UEFI firmware laadt <b>EFI System Partition (ESP)</b> van de opstartschijf.</li><li>De <b>Windows Boot Manager</b> (bootmgr.efi) wordt geladen vanuit de ESP.</li><li><b>Besturingssysteem</b> laden, de bootloader laadt de <b>Windows-kernel</b> en <b>systeemdrives</b>.</li><li><b>Windows</b> wordt <b>geïnitialiseerd</b> en de gebruiker kan zich aanmelden.</li></ol>"],
+    ["WinRE", "Windows Recovery Environment, Windows Herstelomgeving. Voor het oplossen van algemen opstartproblemen kan gebruik gemaakt worden van de WinRE.<br>Toegang:<ul><li>Start de computer op vanaf een Windows installatiemedium (USB of DVD).</li><li><u>OF</u> Forceer een herstart, door de computer uit te zetten tijdens het opstarten, als de computer niet normaal opstart (mogelijks 3x uit te voeren).</li><li>Klik door naar 'Troubleshoot' &rarr; 'Advanced Options'.</li></ul><br>Opties:<ul><li><b>Opstartherstel/ Startup Repair:</b><ul><li>Commando: Selecteer \"Startup Repair\" in WinRE.</li><li>Functie: Analyseert en herstelt Automatisch opstartproblemen. Vb: ontbrekende of beschadigde systeembestanden, bootsectorproblemen en MBR/GPT-corruptie.</li></ul></li><li><b>Systeemherstel/ System Restore:</b><ul><li>Commando: Selecteer \"System Restore\" in WinRE.</li><li>Functie: Zet de computer terug naar een eerder tijdstip (een herstelpunt) waarop de computer correct werkte. Vereist dat systeemherstelpunten zijn ingeschakeld.</li></ul></li><li><b>Opdrachtenprompt/ Command prompt:</b><ul><li>Commando: Selecteer \"Command Prompt\" in WinRE</li><li>Functie: Biedt toegang tot verschillende commando's om handmatig opstartproblemen op te lossen.</li></ul></li><li><b>Starup Settings:</b><ul><li>Commando: Selecteer \"Starup Settings\" in WinRE</li><li>Functie: Biedt toegang tot verschillende opties zoals 'Enable Safe Mode' om Windows te starten met minimale drivers en services. Andere opties zoals 'Debugging Mode', 'Boot Logging' en 'Directory Service Restore Mode' kunnen hier ook ingeschakeld worden. </li></ul></li></ul>"],
+    ["BIOS/UEFI instellingen", "Om de BIOS of UEFI instellingen te openen:<ul><li>Druk tijdens het opstarten op de juiste toets (meestal DEL, F2, F10, F12 of ESC).</li></ul><br>Opties:<ul><li><b>Bootvolgorde</b> aanpassen, zorg ervoor dat de juiste opstartschijf is geselecteerd als eerste opstartapparaat.</li><li><b>UEFI/Legacy Mode</b> aanpassen, controleer of de juiste opstartmodus is ingeschakeld afhankelijk van het OS en de hardware.</li><li><b>Secure Boot</b> uitschakelen als dit problemen veroorzaakt. Vb: Bij het opstarten van een ander OS of herstelmedium.</li></ul>"],
+    ["Command Prompt - bootrec.exe", "Tool voor het herstellen van de bootsector, MBR en <b>Boot Configuration Data</b> (BCD).<br>Commando's:<ul><li><b>bootrec /FixMBR</b>: schrijft een nieuwe MBR naar de systeemschijf. Handig bij MBR-corruptie fo virusinfectie.</li><li><b>bootrec /FixBoot</b>: schrijft een nieuwe bootsector naar de systeempartitie. Handig als de bootsector beschadigd is.</li><li><b>bootrec /ScanOS</b>: scant alle schijven op geïnstalleerde Windows besturingssystemen en geeft een lijst weer.</li><li><b>bootrec /RebuildBcd</b>: bouwt de BCD opnieuw op. Handig als de BCD beschadigd is of ontbrekende vermeldingen bevat.</li></ul>"],
+    ["Command Prompt - bcdedit.exe", "Tool voor het bewerken van de <b>Boot Configuration Data</b>, BCD.<br>Commando's:<ul><li><b>bcdedit /export C:\\bcdbackup</b>: Maakt een back-up van de BCD naar een bestand (hier: C:\\bcdbackup).</li><li><b>bcdedit /import C:\\bcdbackup</b>: Herstelt de BCD vanuit een back-upbestand.</li><li><b>bcdedit /delete {GUID}</b>: Verwijdert een specifieke BCD-vermelding. Vereist de GUID van de vermelding.</li><li><b>bcdedit /create /d \"Windows 11\" /application osloader</b>: Maakt een nieuwe BCD-vermelding voor een Windows-OS.</li><li><b>bcdedit /set {GUID} device partition=C:</b>: Stelt het apparaat in voor de BCD-vermelding (hier partitie C:)/</li><li><b>bcdedit /set {GUID} osdevice partition=C:</b>: Stelt de OS-apparaat in voor de BCD-vermelding (hier partitie C:).</li><li><b>bcdedit /set {GUID} systemroot \\Windows</b>: Stelt de systeemroot in voor de BCD-vermelding (hier \\Windows).</li></ul>"],
+    ["Command Prompt - diskpart.exe", "Tool voor het beheren van schijven en partities.<br>Commando's:<ul><li><b>diskpart</b>: Start de diskpart-tool.</li><li><b>list disk</b>: Geeft een lijst van alle schijven.</li><li><b>select disk <nummer></b>: Selecteert een schijf.</li><li><b>list partition</b>: Geeft een lijst van alle partities op de geselcteerde schijf.</li><li><b>select partition <nummer></b>: Selecteert een partitie.</li><li><b>active</b>: Markeert de geselecteerde partitie als actief (enkel MBR-schijven).</li><li><b>assign letter =[LETTER]</b>: Wijst een stationletter toe aan de geselcteerde partitie.</li><li><b>exit</b>: Sluit de diskpart-tool.</li></ul>"],
+    ["Command Prompt - chkdsk.exe", "Tool voor het controleren en repareren van schijffouten.<br>Commando: <ul><li><b>chkdsk C: /f /r</b>: Controleert en repareert de C:-schijf. De parameter 'f' repareert fouten. De parameter 'r' zoekt naar beschadigde sectoren en herstelt leesbare informatie.</li></ul>"],
+    ["Scenario - Computer start niet op na een Windows update", "Gebruik <b>Systeemherstel</b> in WinRE om terug te keren naar een herstelpunt voor de update.<br>Als dat niet werkt: gebruik <b>Opstartherstel</b> in WinRE."],
+    ["Scenario - Operating System Not Found", "Controleer de <b>bootvolgorde</b> in de <b>BIOS/UEFI instellingen</b>.<br>Als dat niet werkt: gebruik <b>bootrec /FixMBR</b>, <b>bootrec /FixBoot</b> of <b>bootrec /RebuildBcd</b> in Command Prompt van WinRE."],
+    ["Scenario - Missing Operating System", "Zie scenario - Operating System Not Found."],
+    ["Scenario - Blue Screen Of Death BSOD", "Start op in <b>Safe Mode</b> via de <b>Startup Settings</b>, verwijder of update drivers die mogelijke problemen veroorzaken.<br>Als dat niet werkt: gebruik <b>Systeemherstel</b> in WinRE."],
+    ["Scenario - Problemen met Secure Boot", "Schakel <b>Secure Boot</b> tijdelijk uit in de <b>BIOS/UEFI</b> instellingen om te controleren of dit het probleem veroorzaakt.<br>Als dat niet werkt: onderzoek de compabiliteit van de hardware en software met <b>Secure Boot</b>"],
+    ["Scenario - GPT-schijf start niet op", "Zorg ervoor dat de computer in <b>UEFI-modus</b> opstart. Controleer of de <b>EFI-partitie</b> aanwezig en correct is.<br>Als dat niet werkt: gebruik <b>bootrec /RebuildBCD</b> in de <b>Command Prompt</b> van WinRE."],
+    []
+];
+
+let terms = [];
 
 const elList = document.getElementById('term-list');
 const counterE = document.getElementById('teller');
 const elUitleg = document.getElementById('uitleg');
 const elTerm = document.getElementById('term');
+const eChkHW = document.getElementById('chk-HW');
+const eChkWin = document.getElementById('chk-Win');
+
+const laatsteKeuze = localStorage.getItem('laatsteKeuze');
 
 var term = terms[0];
 var usedIndexes = [];
@@ -126,6 +173,27 @@ var clicks = 0;
 var isExplanationVisible = false;
 
 var currentIndex = 0;
+
+const updateTerms = () => {
+    const hwChecked = document.getElementById('chk-HW').checked;
+    const winChecked = document.getElementById('chk-Win').checked;
+
+    localStorage.setItem('laatsteKeuze', winChecked ? 'win' : 'hw');
+
+    terms = [
+        ...(hwChecked ? termsHW : []),
+        ...(winChecked ? termsWin : [])
+    ];
+
+    terms.sort((a, b) => {
+        if (a[0] < b[0]) return -1;
+        if (a[0] > b[0]) return 1;
+        return 0;
+    });
+
+    reset();
+    renderList();
+};
 
 const isDrawn = i => {
     var index = 0;
@@ -142,9 +210,7 @@ const isDrawn = i => {
 const generateTerm = () => {
     let newIndex;
     if (clicks === terms.length) {
-        clicks = 0;
-        usedIndexes = [];
-        counterE.textContent = `(${clicks} / ${terms.length})`;
+        reset();
     }
     do {
         newIndex = Math.floor(Math.random() * terms.length);
@@ -161,17 +227,11 @@ const showAnswer = () => {
     isExplanationVisible = true
 };
 
-const emptyAll = () => {
-    elTerm.textContent = "Term:";
-    elUitleg.textContent = "";
-};
-
 const reset = () => {
     clicks = 0;
     usedIndexes = [];
-    // emptyAll();
+    emptyAll();
     counterE.textContent = `(${clicks} / ${terms.length})`;
-    generateTerm();
 };
 
 const renderList = () => {
@@ -204,13 +264,33 @@ const renderCard = () => {
     isExplanationVisible = false;
 };
 
+const emptyAll = () => {
+    elTerm.textContent = "Term:";
+    elUitleg.textContent = "";
+};
+
+eChkHW.addEventListener('change', () => {
+    if (eChkHW.checked) {
+        eChkWin.checked = false;
+    }
+    emptyAll();
+    updateTerms();
+});
+
+eChkWin.addEventListener('change', () => {
+    if (eChkWin.checked) {
+        eChkHW.checked = false;
+    }
+    emptyAll();
+    updateTerms();
+});
+
 const updateActiveListState = () => {
     const items = elList.querySelectorAll('li');
     items.forEach((li) => {
         const idx = parseInt(li.dataset.index);
         if (idx === currentIndex) {
             li.classList.add('active');
-            li.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
             li.classList.remove('active');
         }
@@ -219,5 +299,9 @@ const updateActiveListState = () => {
 
 //Initialiseren
 counterE.textContent = `(${clicks} / ${terms.length})`;
-renderList();
+eChkHW.checked = laatsteKeuze !== 'win';
+eChkWin.checked = laatsteKeuze === 'win';
+updateTerms();
 generateTerm();
+// renderList();
+// generateTerm();

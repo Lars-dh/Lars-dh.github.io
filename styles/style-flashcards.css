@@ -1,3 +1,8 @@
+:root {
+    --text: burlywood;
+
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -31,6 +36,8 @@ p {
     width: 600px;
     line-height: 1.6em;
     text-align: justify;
+    text-justify: inter-word;
+    /* hyphens: auto; */
     margin-block-start: 1rem;
     margin-block-end: 1rem;
 }
@@ -116,9 +123,18 @@ u {
     display: inline;
 }
 
-p#uitleg>ul {
+p#uitleg>ul,
+p#uitleg>ol {
     padding: 0.5rem 2rem;
 }
+
+p#uitleg>ul>li>ul,
+p#uitleg>ol>li>ul,
+p#uitleg>ul>li>ol,
+p#uitleg>ol>li>ol {
+    padding: 0rem 2rem;
+}
+
 
 .list-item {
     border: 1px rgb(61, 61, 61) solid;
@@ -173,4 +189,33 @@ a.a-nav:hover {
     color: var(--text-accent);
     border-color: var(--border-active);
     background-image: linear-gradient(#464d55, #25292e);
+}
+
+input.keuzelijst {
+    margin-right: 8px;
+    margin-bottom: 16px;
+}
+
+.keuzelijst:hover {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid var(--text);
+}
+
+th,
+td {
+    border: 1px solid var(--text);
+    padding: 0.25rem 0.75rem;
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even),
+thead {
+    background: #161616;
 }
