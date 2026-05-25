@@ -1,6 +1,15 @@
-:root {
-    --text: burlywood;
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+:root {
+    --text: #deb887;
+    --text-link: #f7a63d;
+    --text-accent: #f5e0c5;
+    --bg-color1: #161616;
+    --bg-color2: #1D1D1D;
+    --bg-active: #272727;
+    --border: rgb(61, 61, 61);
+    --border-active: rgb(105, 105, 105);
 }
 
 * {
@@ -16,8 +25,8 @@ html {
 
 body {
     position: relative;
-    background-color: #161616;
-    color: burlywood;
+    background-color: var(--bg-color1);
+    color: var(--text);
 }
 
 main {
@@ -43,14 +52,14 @@ p {
 }
 
 .wrapper {
-    border: 1px rgb(61, 61, 61) solid;
+    border: 1px solid var(--border);
     border-radius: 8px;
     text-align: center;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
     padding: 12px;
-    background-color: #1D1D1D;
+    background-color: var(--bg-color2);
     position: sticky;
     max-height: 100vh;
     top: 24px;
@@ -67,11 +76,11 @@ aside {
 .termen-wrapper {
     position: sticky;
     top: 1rem;
-    border: 1px rgb(61, 61, 61) solid;
+    border: 1px solid var(--border);
     border-radius: 8px;
     margin: 0;
     padding: 0px 16px 16px;
-    background-color: #1D1D1D;
+    background-color: var(--bg-color2);
     max-width: 380px;
 }
 
@@ -135,9 +144,14 @@ p#uitleg>ol>li>ol {
     padding: 0rem 2rem;
 }
 
+p#uitleg a {
+    text-decoration: dotted;
+    color: var(--text-link);
+}
+
 
 .list-item {
-    border: 1px rgb(61, 61, 61) solid;
+    border: 1px solid var(--border);
     border-radius: 8px;
     list-style: none;
     padding: 4px 8px;
@@ -147,15 +161,15 @@ p#uitleg>ol>li>ol {
 }
 
 .list-item.active {
-    border: 1px rgb(105, 105, 105) solid;
+    border: 1px solid var(--border-active);
     border-radius: 8px;
-    background-color: #272727;
+    background-color: var(--bg-active);
 }
 
 /* navigation */
 
 nav.nav-top {
-    border: 1px gray solid;
+    border: 1px solid var(--border);
     border-radius: 8px;
     margin: 16px 32px 0px;
     font-size: 1.5rem;
@@ -178,7 +192,7 @@ li.nav-link {
 }
 
 a.a-nav {
-    border: 1px gray solid;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 8px 16px;
     text-decoration: none;
@@ -217,5 +231,16 @@ td:first-child {
 
 tbody tr:nth-child(even),
 thead {
-    background: #161616;
+    background: var(--bg-color1);
+}
+
+kbd {
+    font-family: monospace;
+    display: inline;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 0 0.25rem;
+    padding: 0.125em 0.5em;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, .2), 0 0 0 2px var(--border-active) inset;
+    background-color: var(--bg-active);
 }
