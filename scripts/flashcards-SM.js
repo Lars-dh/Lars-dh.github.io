@@ -201,7 +201,7 @@ const termsWin = [
         </ul>`],
     ["Windows Update raadplegen", `De Windows Update kan op volgende manier geraadpleegd worden:
         <ul>
-        <li><b>Ga</b> naar '<b>Instellingen</b>' (<kbd>Ctrl</kbd> + <kbd>i</kbd>)</li>
+        <li><b>Ga</b> naar '<b>Instellingen</b>' ( <kbd style="font-family: marlett; ">W</kbd> + <kbd>gi</kbd>)</li>
         <li><b>Update & Beveiliging</b></li>
         <li><b>Windows Update</b></li>
         </ul>`],
@@ -231,7 +231,8 @@ const termsWin = [
         <li>ℹ️: Geeft weer dat de resources manueel werden toegewezen. Het indiceert dat het 'Use automatic settings' onderdeel niet is geselecteerd.</li>
         <li>❓: Verschijnt wanneer Windows het apparaat detecteert, maar het apparaat niet kan identificeren of de driver ervan installeren. Vereist de juiste driver te installeren.</li>
         </ul>`],
-    ["Windows Services Configureren", ``]
+    ["Windows Services Configureren", ``],
+    ["10V ", ``]
 ];
 
 let terms = [];
@@ -263,11 +264,14 @@ const updateTerms = () => {
         ...(winChecked ? termsWin : [])
     ];
 
-    terms.sort((a, b) => {
-        if (a[0] < b[0]) return -1;
-        if (a[0] > b[0]) return 1;
-        return 0;
-    });
+    // De array terms sorteren op basis van de eerste string in de subarrays.
+    // terms.sort((a, b) => {
+    //     if (a[0] < b[0]) return -1;
+    //     if (a[0] > b[0]) return 1;
+    //     return 0;
+    // }); op deze manier komt A B C ... Z eerst en dan pas a b c ... z.
+    // Op volgende manier komt a en A tezamen.
+    terms.sort((a, b) => a[0].localeCompare(b[0], undefined, { sensitivity: 'base', caseFirst: 'upper', numeric: true }));
 
     reset();
     renderList();
