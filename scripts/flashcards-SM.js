@@ -201,7 +201,7 @@ const termsWin = [
         </ul>`],
     ["Windows Update raadplegen", `De Windows Update kan op volgende manier geraadpleegd worden:
         <ul>
-        <li><b>Ga</b> naar '<b>Instellingen</b>' ( <kbd style="font-family: marlett; ">W</kbd> + <kbd>gi</kbd>)</li>
+        <li><b>Ga</b> naar '<b>Instellingen</b>' ( <kbd style="font-family: marlett; ">W</kbd> + <kbd>i</kbd>)</li>
         <li><b>Update & Beveiliging</b></li>
         <li><b>Windows Update</b></li>
         </ul>`],
