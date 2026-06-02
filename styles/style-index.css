@@ -20,6 +20,7 @@
     font-style: normal;
 }
 
+
 body {
     background-color: var(--bg-color1);
     color: var(--text);
@@ -60,4 +61,23 @@ a.a-nav:hover {
     color: var(--text-accent);
     border-color: var(--border-active);
     background-image: linear-gradient(#464d55, #25292e);
+}
+
+.container{
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 16px;
+    height: auto;
+    width: auto;
+}
+
+.card{
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-width: 150px;
+    margin: 8px;
+}
+
+.card-img{
+    width: 120px;
 }

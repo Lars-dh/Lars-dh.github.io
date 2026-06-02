@@ -230,9 +230,7 @@ const termsWin = [
         <li>⬇️: Het apparaat is manueel uitgeschakeld. Het apparaat zal terug in werking treden na het inschakelen via het context menu.</li>
         <li>ℹ️: Geeft weer dat de resources manueel werden toegewezen. Het indiceert dat het 'Use automatic settings' onderdeel niet is geselecteerd.</li>
         <li>❓: Verschijnt wanneer Windows het apparaat detecteert, maar het apparaat niet kan identificeren of de driver ervan installeren. Vereist de juiste driver te installeren.</li>
-        </ul>`],
-    ["Windows Services Configureren", ``],
-    ["10V ", ``]
+        </ul>`]    
 ];
 
 let terms = [];
